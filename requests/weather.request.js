@@ -1,11 +1,12 @@
 const rp = require("request-promise");
+const config = require("../config");
 
 module.exports = async function (city = "") {
   if (!city) {
     throw new Error("Название города не может быть пустым");
   }
 
-  const APIkey = "bef7bc69757752d65ebe67b41c378f73";
+  const APIkey = config.WEATHER_API_KEY;
   const uri = "http://api.openweathermap.org/data/2.5/weather";
 
   const options = {
